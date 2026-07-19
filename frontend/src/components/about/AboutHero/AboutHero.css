@@ -1,0 +1,63 @@
+.about-hero {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.55),
+              rgba(0,0,0,0.55)),
+              url("../../../assets/about/agriculture.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  padding: 0 10%;
+}
+
+.about-hero-content {
+  max-width: 800px;
+}
+
+.about-hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 8px 20px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.about-hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.about-btn {
+  padding: 14px 35px;
+  border: none;
+  border-radius: 8px;
+  background: #2E7D32;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.about-btn:hover {
+  background: #1b5e20;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .about-hero p {
+    font-size: 1rem;
+  }
+}

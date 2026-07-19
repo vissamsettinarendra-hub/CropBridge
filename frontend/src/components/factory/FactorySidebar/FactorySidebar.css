@@ -1,0 +1,115 @@
+/* ===========================
+   Factory Sidebar
+=========================== */
+
+.factory-sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1565C0, #0D47A1);
+  color: #fff;
+  padding: 25px 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo */
+
+.factory-sidebar h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+
+.factory-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Links */
+
+.factory-sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 14px 18px;
+
+  color: white;
+  text-decoration: none;
+
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+/* Icons */
+
+.factory-sidebar nav a svg {
+  font-size: 20px;
+}
+
+/* Text */
+
+.factory-sidebar nav a span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* Hover */
+
+.factory-sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateX(5px);
+}
+
+/* Active Link */
+
+.factory-sidebar nav a.active {
+  background: white;
+  color: #1565C0;
+  font-weight: bold;
+}
+
+.factory-sidebar nav a.active svg {
+  color: #1565C0;
+}
+
+/* Scroll */
+
+.factory-sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.factory-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.3);
+  border-radius: 10px;
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+  .factory-sidebar{
+    width:220px;
+  }
+
+  .factory-sidebar h2{
+    font-size:22px;
+  }
+
+  .factory-sidebar nav a{
+    padding:12px;
+  }
+
+  .factory-sidebar nav a span{
+    font-size:15px;
+  }
+
+}

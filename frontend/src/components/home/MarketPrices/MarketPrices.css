@@ -1,0 +1,183 @@
+/* ==========================================
+   MARKET PRICES SECTION
+========================================== */
+
+.market-prices {
+    padding: 100px 8%;
+    background: linear-gradient(135deg, #f8fff8, #eef8f1);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.market-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.market-tag {
+    display: inline-block;
+    background: #d8f3dc;
+    color: #2E7D32;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.market-header h2 {
+    margin-top: 20px;
+    font-size: 42px;
+    color: #222;
+}
+
+.market-header p {
+    max-width: 720px;
+    margin: 20px auto 0;
+    color: #666;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.market-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    transition: 0.4s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.market-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 5px;
+    background: #2E7D32;
+}
+
+.market-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.market-card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.market-card h2 {
+    color: #2E7D32;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   TREND
+========================================== */
+
+.trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.trend.up {
+    background: #d8f3dc;
+    color: #2E7D32;
+}
+
+.trend.down {
+    background: #ffe5e5;
+    color: #d32f2f;
+}
+
+.trend svg {
+    font-size: 14px;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.market-btn-box {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.market-btn {
+    background: #2E7D32;
+    color: white;
+    border: none;
+    padding: 16px 35px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.market-btn:hover {
+    background: #1f5f24;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 992px) {
+
+    .market-prices {
+        padding: 80px 6%;
+    }
+
+    .market-header h2 {
+        font-size: 34px;
+    }
+
+    .market-header p {
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .market-header h2 {
+        font-size: 30px;
+    }
+
+    .market-card h2 {
+        font-size: 26px;
+    }
+
+}

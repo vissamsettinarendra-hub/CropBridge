@@ -1,0 +1,25 @@
+.factory-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px;
+    background:white;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.factory-header h1{
+    color:#1565C0;
+}
+
+.header-right{
+    display:flex;
+    gap:20px;
+}
+
+.header-icon{
+    font-size:24px;
+    cursor:pointer;
+    color:#1565C0;
+}

@@ -1,0 +1,29 @@
+.farmer-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.farmer-header h1{
+    color:#2E7D32;
+}
+
+.farmer-header p{
+    color:#666;
+}
+
+.header-right{
+    display:flex;
+    gap:20px;
+}
+
+.header-icon{
+    font-size:26px;
+    color:#2E7D32;
+    cursor:pointer;
+}
+
+.profile-icon{
+    font-size:32px;
+}

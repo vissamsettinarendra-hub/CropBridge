@@ -1,0 +1,51 @@
+.contact-hero{
+    height:70vh;
+    background:url("../../../assets/contact/contact-hero.jpg") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.contact-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.contact-overlay span{
+    background:#2E7D32;
+    padding:8px 20px;
+    border-radius:30px;
+    margin-bottom:20px;
+}
+
+.contact-overlay h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.contact-overlay p{
+    max-width:700px;
+    line-height:1.8;
+    font-size:18px;
+}
+
+@media(max-width:768px){
+
+.contact-overlay h1{
+font-size:38px;
+}
+
+.contact-overlay p{
+font-size:16px;
+}
+
+}

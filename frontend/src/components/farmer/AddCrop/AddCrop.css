@@ -1,0 +1,44 @@
+.add-crop{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.add-crop h2{
+    margin-bottom:25px;
+    color:#2E7D32;
+}
+
+.crop-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.crop-form input,
+.crop-form select,
+.crop-form textarea{
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.crop-form textarea{
+    resize:vertical;
+}
+
+.crop-form button{
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#2E7D32;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.crop-form button:hover{
+    background:#1b5e20;
+}

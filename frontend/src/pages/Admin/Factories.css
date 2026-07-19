@@ -1,0 +1,52 @@
+.admin-dashboard{
+    display:flex;
+    min-height:100vh;
+    background:#f4f6f9;
+}
+
+.factory-table{
+    flex:1;
+    margin-left:260px;
+    padding:30px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+    margin-top:30px;
+    margin-right:30px;
+}
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.table-header button{
+    background:#1565C0;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1565C0;
+    color:#fff;
+    padding:14px;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f5f5f5;
+}

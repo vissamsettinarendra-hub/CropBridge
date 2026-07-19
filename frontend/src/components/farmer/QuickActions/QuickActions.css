@@ -1,0 +1,45 @@
+.quick-actions{
+
+    margin-bottom:40px;
+
+}
+
+.quick-actions h2{
+
+    margin-bottom:20px;
+
+}
+
+.action-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.action-buttons button{
+
+    background:#2E7D32;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.action-buttons button:hover{
+
+    background:#1b5e20;
+
+}

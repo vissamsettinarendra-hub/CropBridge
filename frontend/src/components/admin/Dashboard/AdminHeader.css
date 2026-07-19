@@ -1,0 +1,33 @@
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.admin-header h1 {
+  font-size: 40px;
+  color: #263238;
+}
+
+.admin-header p {
+  color: #666;
+  margin-top: 8px;
+}
+
+.header-right {
+  display: flex;
+  gap: 20px;
+}
+
+.header-icon {
+  font-size: 28px;
+  color: #263238;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-icon:hover {
+  color: #1565C0;
+  transform: scale(1.1);
+}

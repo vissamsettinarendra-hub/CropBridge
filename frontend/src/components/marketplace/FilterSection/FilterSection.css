@@ -1,0 +1,24 @@
+.filter-section{
+    padding:40px 8%;
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.filter-section input,
+.filter-section select{
+    padding:15px;
+    width:280px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.filter-section button{
+    padding:15px 30px;
+    background:#2E7D32;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}

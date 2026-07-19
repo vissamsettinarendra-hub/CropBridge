@@ -1,0 +1,33 @@
+.marketplace-cta{
+    padding:100px 8%;
+    text-align:center;
+    background:linear-gradient(135deg,#2E7D32,#4CAF50);
+    color:white;
+}
+
+.marketplace-cta h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.marketplace-cta p{
+    max-width:700px;
+    margin:0 auto 40px;
+    line-height:1.8;
+}
+
+.marketplace-cta button{
+    padding:15px 40px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#2E7D32;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.marketplace-cta button:hover{
+    transform:translateY(-5px);
+}

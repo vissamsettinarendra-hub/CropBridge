@@ -1,0 +1,27 @@
+.factory-payments{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.factory-payments h2{
+    color:#1565C0;
+    margin-bottom:20px;
+}
+
+.factory-payments table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.factory-payments th,
+.factory-payments td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+.factory-payments th{
+    background:#1565C0;
+    color:white;
+}

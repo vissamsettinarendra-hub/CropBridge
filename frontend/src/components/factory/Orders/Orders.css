@@ -1,0 +1,28 @@
+.factory-orders{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.factory-orders h2{
+    margin-bottom:20px;
+    color:#1565C0;
+}
+
+.factory-orders table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.factory-orders th,
+.factory-orders td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+.factory-orders th{
+    background:#1565C0;
+    color:white;
+}

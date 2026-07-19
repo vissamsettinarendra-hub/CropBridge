@@ -1,0 +1,58 @@
+.browse-crops{
+    padding:30px;
+}
+
+.browse-crops h2{
+    color:#1565C0;
+    margin-bottom:20px;
+}
+
+.search-box{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:30px;
+}
+
+.crop-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.crop-card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.crop-card h3{
+    color:#1565C0;
+    margin-bottom:15px;
+}
+
+.crop-card p{
+    margin:8px 0;
+}
+
+.buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.buttons button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#1565C0;
+    color:white;
+    cursor:pointer;
+}
+
+.buttons button:hover{
+    background:#0D47A1;
+}

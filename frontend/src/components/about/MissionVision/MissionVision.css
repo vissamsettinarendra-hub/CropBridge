@@ -1,0 +1,52 @@
+.mission-vision{
+    padding:100px 8%;
+    background:#f8faf8;
+}
+
+.mv-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+
+.mv-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.mv-card:hover{
+    transform:translateY(-10px);
+}
+
+.mv-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.mv-card h2{
+    padding:25px 25px 10px;
+    color:#2E7D32;
+    font-size:28px;
+}
+
+.mv-card p{
+    padding:0 25px 30px;
+    color:#666;
+    line-height:1.8;
+}
+
+@media(max-width:768px){
+
+.mv-container{
+grid-template-columns:1fr;
+}
+
+.mv-card img{
+height:220px;
+}
+
+}

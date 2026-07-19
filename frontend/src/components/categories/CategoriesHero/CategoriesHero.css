@@ -1,0 +1,26 @@
+.categories-hero{
+    height:60vh;
+    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../../../assets/categories/paddy.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.categories-overlay{
+    text-align:center;
+    color:white;
+}
+
+.categories-overlay h1{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.categories-overlay p{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.8;
+}

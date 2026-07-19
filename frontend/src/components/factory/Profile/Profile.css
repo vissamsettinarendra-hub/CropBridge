@@ -1,0 +1,16 @@
+.factory-profile{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.factory-profile h2{
+    color:#1565C0;
+    margin-bottom:20px;
+}
+
+.profile-card p{
+    margin:15px 0;
+    font-size:17px;
+}

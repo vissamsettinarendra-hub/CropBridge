@@ -1,0 +1,26 @@
+.marketplace-hero{
+    height:65vh;
+    background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../../../assets/hero/farmer-hero.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.marketplace-overlay{
+    text-align:center;
+    color:white;
+}
+
+.marketplace-overlay h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.marketplace-overlay p{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.8;
+}

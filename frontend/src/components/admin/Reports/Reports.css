@@ -1,0 +1,17 @@
+.admin-section{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    margin-top:25px;
+}
+
+.admin-section h2{
+    color:#EF6C00;
+    margin-bottom:15px;
+}
+
+.admin-section p{
+    color:#666;
+    font-size:17px;
+}

@@ -1,0 +1,23 @@
+.recent-purchases{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.recent-purchases table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.recent-purchases th,
+.recent-purchases td{
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+.recent-purchases th{
+    color:#1565C0;
+}

@@ -1,0 +1,37 @@
+.buyer-section{
+    padding:100px 8%;
+    background:white;
+    text-align:center;
+}
+
+.buyer-section h2{
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.buyer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.buyer-card{
+    background:#f8faf8;
+    padding:40px 30px;
+    border-radius:20px;
+    transition:.3s;
+}
+
+.buyer-card:hover{
+    transform:translateY(-10px);
+}
+
+.buyer-card h3{
+    color:#2E7D32;
+    margin-bottom:15px;
+}
+
+.buyer-card p{
+    color:#666;
+    line-height:1.7;
+}

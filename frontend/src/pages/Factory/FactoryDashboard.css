@@ -1,0 +1,10 @@
+.factory-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6f9;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+}
