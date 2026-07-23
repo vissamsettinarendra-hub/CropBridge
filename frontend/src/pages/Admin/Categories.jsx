@@ -1,39 +1,22 @@
+import "./AdminDashboard.css";
+
 import AdminSidebar from "../../components/admin/Sidebar/AdminSidebar";
-import "./Categories.css";
+import AdminHeader from "../../components/admin/Dashboard/AdminHeader";
+import Categories from "../../components/admin/Categories/Categories";
 
-const categories = [
-  "Paddy",
-  "Cotton",
-  "Maize",
-  "Groundnut",
-  "Turmeric",
-  "Chilli",
-  "Tomato",
-  "Onion",
-];
-
-const Categories = () => {
+const CategoriesPage = () => {
   return (
     <div className="admin-dashboard">
 
       <AdminSidebar />
-    <div className="categories">
 
-      <h2>Crop Categories</h2>
-
-      <div className="category-grid">
-
-        {categories.map((category, index) => (
-          <div className="category-card" key={index}>
-            <h3>{category}</h3>
-          </div>
-        ))}
-
+      <div className="dashboard-content">
+        <AdminHeader />
+        <Categories />
       </div>
 
-    </div>
     </div>
   );
 };
 
-export default Categories;
+export default CategoriesPage;
