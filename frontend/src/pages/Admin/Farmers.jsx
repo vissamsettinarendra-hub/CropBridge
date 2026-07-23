@@ -1,4 +1,4 @@
-import "../../components/admin/Dashboard/AdminDashboard.css";
+import "./AdminDashboard.css";
 
 import AdminSidebar from "../../components/admin/Sidebar/AdminSidebar";
 import AdminHeader from "../../components/admin/Dashboard/AdminHeader";
