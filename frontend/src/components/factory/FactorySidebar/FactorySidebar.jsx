@@ -1,5 +1,5 @@
 import "./FactorySidebar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   FaHome,
   FaSeedling,
@@ -13,39 +13,41 @@ const FactorySidebar = () => {
   return (
     <aside className="factory-sidebar">
 
-      <h2>🏭 CropBridge</h2>
+      <div className="sidebar-logo">
+        🏭 <span>CropBridge</span>
+      </div>
 
       <nav>
 
-        <Link to="/factory">
+        <NavLink to="/factory" end>
           <FaHome />
           <span>Dashboard</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/factory/browse-crops">
+        <NavLink to="/factory/browse-crops">
           <FaSeedling />
           <span>Browse Crops</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/factory/crop-request">
+        <NavLink to="/factory/crop-request">
           <FaClipboardList />
           <span>Crop Requests</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/factory/orders">
+        <NavLink to="/factory/orders">
           <FaShoppingBasket />
           <span>Orders</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/factory/payments">
+        <NavLink to="/factory/payments">
           <FaWallet />
           <span>Payments</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/factory/profile">
+        <NavLink to="/factory/profile">
           <FaUser />
           <span>Profile</span>
-        </Link>
+        </NavLink>
 
       </nav>
 
