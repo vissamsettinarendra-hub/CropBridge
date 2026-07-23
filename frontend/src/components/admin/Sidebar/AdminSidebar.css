@@ -1,14 +1,23 @@
 .admin-sidebar{
     width:250px;
     min-height:100vh;
-    background:#1e3a8a;
+    background:#1E293B;
     color:white;
     padding:20px;
+    position:sticky;
+    top:0;
 }
 
-.admin-sidebar h2{
+.sidebar-logo{
     text-align:center;
+    font-size:24px;
+    font-weight:bold;
     margin-bottom:40px;
+}
+
+.sidebar-logo span{
+    display:block;
+    margin-top:10px;
 }
 
 .admin-sidebar nav{
@@ -21,10 +30,10 @@
     display:flex;
     align-items:center;
     gap:12px;
-    text-decoration:none;
     color:white;
-    padding:12px;
-    border-radius:8px;
+    text-decoration:none;
+    padding:14px;
+    border-radius:10px;
     transition:.3s;
 }
 
@@ -34,6 +43,10 @@
 
 .admin-sidebar nav a.active{
     background:white;
-    color:#1e3a8a;
-    font-weight:bold;
+    color:#1E293B;
+    font-weight:600;
+}
+
+.admin-sidebar svg{
+    font-size:18px;
 }
