@@ -1,26 +1,33 @@
 import "./QuickActions.css";
+import { Link } from "react-router-dom";
 
 const QuickActions = () => {
   return (
-
     <section className="quick-actions">
 
       <h2>Quick Actions</h2>
 
       <div className="action-buttons">
 
-        <button>Add Crop</button>
+        <Link to="/farmer/add-crop">
+          <button>Add Crop</button>
+        </Link>
 
-        <button>View Orders</button>
+        <Link to="/farmer/orders">
+          <button>View Orders</button>
+        </Link>
 
-        <button>Check Payments</button>
+        <Link to="/farmer/payments">
+          <button>Check Payments</button>
+        </Link>
 
-        <button>Update Profile</button>
+        <Link to="/farmer/profile">
+          <button>Update Profile</button>
+        </Link>
 
       </div>
 
     </section>
-
   );
 };
 
