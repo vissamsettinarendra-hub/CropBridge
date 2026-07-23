@@ -1,61 +1,56 @@
 import "./MyCrops.css";
 
 const MyCrops = () => {
-
   const crops = [
     {
       id: 1,
       name: "Paddy",
       quantity: "500 Kg",
-      price: "₹24/kg",
+      price: "₹22/Kg",
       status: "Available",
     },
     {
       id: 2,
-      name: "Cotton",
+      name: "Maize",
       quantity: "300 Kg",
-      price: "₹68/kg",
+      price: "₹18/Kg",
       status: "Sold",
     },
     {
       id: 3,
-      name: "Turmeric",
+      name: "Cotton",
       quantity: "150 Kg",
-      price: "₹120/kg",
-      status: "Available",
+      price: "₹65/Kg",
+      status: "Pending",
     },
   ];
 
   return (
-
-    <section className="my-crops">
-
+    <div className="my-crops">
       <h2>My Crops</h2>
 
-      <div className="crop-grid">
+      <table className="crop-table">
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
 
-        {crops.map((crop) => (
-
-          <div className="crop-card" key={crop.id}>
-
-            <h3>{crop.name}</h3>
-
-            <p><strong>Quantity:</strong> {crop.quantity}</p>
-
-            <p><strong>Price:</strong> {crop.price}</p>
-
-            <p><strong>Status:</strong> {crop.status}</p>
-
-            <button>Edit Crop</button>
-
-          </div>
-
-        ))}
-
-      </div>
-
-    </section>
-
+        <tbody>
+          {crops.map((crop) => (
+            <tr key={crop.id}>
+              <td>{crop.name}</td>
+              <td>{crop.quantity}</td>
+              <td>{crop.price}</td>
+              <td>{crop.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
