@@ -1,10 +1,11 @@
-.farmer-dashboard {
-  display: flex;
-  min-height: 100vh;
-  background: #f5f7fa;
+.farmer-dashboard{
+    display:flex;
+    min-height:100vh;
+    background:#F5F7FA;
 }
 
-.dashboard-content {
-  flex: 1;
-  padding: 30px;
+.dashboard-content{
+    flex:1;
+    padding:30px;
+    overflow-y:auto;
 }
