@@ -1,3 +1,5 @@
+import "./FarmerDashboard.css";
+
 import FarmerSidebar from "../../components/farmer/FarmerSidebar/FarmerSidebar";
 import FarmerHeader from "../../components/farmer/FarmerHeader/FarmerHeader";
 import MyCrops from "../../components/farmer/MyCrops/MyCrops";
