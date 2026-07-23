@@ -1,4 +1,5 @@
 import "./QuickActions.css";
+import { Link } from "react-router-dom";
 
 const QuickActions = () => {
   return (
@@ -8,13 +9,21 @@ const QuickActions = () => {
 
       <div className="action-buttons">
 
-        <button>Browse Crops</button>
+        <Link to="/factory/browse-crops">
+          <button>Browse Crops</button>
+        </Link>
 
-        <button>Create Request</button>
+        <Link to="/factory/crop-request">
+          <button>Create Request</button>
+        </Link>
 
-        <button>View Orders</button>
+        <Link to="/factory/orders">
+          <button>View Orders</button>
+        </Link>
 
-        <button>Payments</button>
+        <Link to="/factory/profile">
+          <button>Profile</button>
+        </Link>
 
       </div>
 
