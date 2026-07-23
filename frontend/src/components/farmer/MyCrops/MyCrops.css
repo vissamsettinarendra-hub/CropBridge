@@ -1,75 +1,32 @@
 .my-crops{
-
-    padding:20px;
-
+    background:#fff;
+    padding:25px;
+    border-radius:10px;
+    margin-top:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
 }
 
 .my-crops h2{
-
-    margin-bottom:30px;
-
-    color:#2E7D32;
-
+    margin-bottom:20px;
 }
 
-.crop-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:25px;
-
-}
-
-.crop-card{
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-
-}
-
-.crop-card h3{
-
-    color:#2E7D32;
-
-    margin-bottom:15px;
-
-}
-
-.crop-card p{
-
-    margin:10px 0;
-
-}
-
-.crop-card button{
-
-    margin-top:20px;
-
+.crop-table{
     width:100%;
-
-    padding:12px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#2E7D32;
-
-    color:white;
-
-    cursor:pointer;
-
+    border-collapse:collapse;
 }
 
-.crop-card button:hover{
+.crop-table th,
+.crop-table td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
 
-    background:#1B5E20;
+.crop-table th{
+    background:#2E7D32;
+    color:#fff;
+}
 
+.crop-table tr:hover{
+    background:#f8f8f8;
 }
