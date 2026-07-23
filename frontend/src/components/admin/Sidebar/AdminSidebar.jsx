@@ -1,5 +1,5 @@
 import "./AdminSidebar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   FaHome,
   FaUsers,
@@ -11,34 +11,40 @@ import {
 const AdminSidebar = () => {
   return (
     <aside className="admin-sidebar">
-      <h2>⚙️ CropBridge</h2>
+
+      <div className="sidebar-logo">
+        ⚙️ <span>CropBridge</span>
+      </div>
 
       <nav>
-        <Link to="/admin">
+
+        <NavLink to="/admin" end>
           <FaHome />
           <span>Dashboard</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/farmers">
+        <NavLink to="/admin/farmers">
           <FaUsers />
           <span>Farmers</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/factories">
+        <NavLink to="/admin/factories">
           <FaIndustry />
           <span>Factories</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/categories">
+        <NavLink to="/admin/categories">
           <FaSeedling />
           <span>Categories</span>
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/reports">
+        <NavLink to="/admin/reports">
           <FaChartBar />
           <span>Reports</span>
-        </Link>
+        </NavLink>
+
       </nav>
+
     </aside>
   );
 };
