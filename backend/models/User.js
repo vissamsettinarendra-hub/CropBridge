@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       default: "",
-      trim: true,
     },
 
     role: {
@@ -41,7 +40,6 @@ const userSchema = new mongoose.Schema(
     address: {
       type: String,
       default: "",
-      trim: true,
     },
 
     profileImage: {
@@ -54,19 +52,27 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-// ================= Hash Password =================
+userSchema.pre("save", async function (next) {
 
-userSchema.pre("save", async function () {
-  if (!this.isModified("password")) return;
+  if (!this.isModified("password")) {
+    return next();
+  }
 
   const salt = await bcrypt.genSalt(10);
+
   this.password = await bcrypt.hash(this.password, salt);
+
+  next();
+
 });
 
-// ================= Compare Password =================
-
 userSchema.methods.matchPassword = async function (enteredPassword) {
-  return bcrypt.compare(enteredPassword, this.password);
+
+  return await bcrypt.compare(
+    enteredPassword,
+    this.password
+  );
+
 };
 
 export default mongoose.model("User", userSchema);
