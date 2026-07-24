@@ -1,47 +1,51 @@
 import User from "../models/User.js";
 import generateToken from "../utils/generateToken.js";
 
-// ======================
+// ======================================
 // Register User
-// ======================
+// ======================================
 
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password, phone, role } = req.body;
+   const { name, email, password, phone, role } = req.body;
 
-    // Check if user already exists
-    const userExists = await User.findOne({
-      email: email.toLowerCase(),
-    });
+          // Validate required fields
+          if (!name || !email || !password || !role) {
+            return res.status(400).json({
+              success: false,
+              message: "All required fields are mandatory",
+            });
+          }
 
-    if (userExists) {
-      return res.status(400).json({
-        success: false,
-        message: "User already exists",
-      });
-    }
+          // Check if user already exists
+          const userExists = await User.findOne({
+            email: email.toLowerCase(),
+          });
 
-    // Create User
-    const user = await User.create({
-      name,
-      email,
-      password,
-      phone,
-      role,
-    });
+        if (userExists) {
+          return res.status(400).json({
+            success: false,
+            message: "User already exists",
+          });
+        }
 
-    // Generate JWT
+          const user = await User.create({
+          name,
+          email: email.toLowerCase(),
+          password,
+          phone,
+          role,
+        });
+
     const token = generateToken(user._id, user.role);
 
-    // Store JWT in HttpOnly Cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,          // Change to true after HTTPS deployment
+      secure: false,
       sameSite: "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    // Remove password
     const userData = user.toObject();
     delete userData.password;
 
@@ -54,24 +58,32 @@ export const registerUser = async (req, res) => {
   } catch (error) {
     console.error("REGISTER ERROR:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 };
 
-// ======================
+// ======================================
 // Login User
-// ======================
+// ======================================
 
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // IMPORTANT
     const user = await User.findOne({
       email: email.toLowerCase(),
     }).select("+password");
+
+    console.log("========== LOGIN ==========");
+    console.log("Email :", email);
+    console.log("Entered Password :", password);
+    console.log("User :", user);
+    console.log("Stored Password :", user?.password);
+    console.log("===========================");
 
     if (!user) {
       return res.status(401).json({
@@ -89,10 +101,8 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    // Generate JWT
     const token = generateToken(user._id, user.role);
 
-    // Save token in cookie
     res.cookie("token", token, {
       httpOnly: true,
       secure: false,
@@ -103,7 +113,7 @@ export const loginUser = async (req, res) => {
     const userData = user.toObject();
     delete userData.password;
 
-    return res.json({
+    return res.status(200).json({
       success: true,
       message: "Login Successful",
       user: userData,
@@ -112,25 +122,50 @@ export const loginUser = async (req, res) => {
   } catch (error) {
     console.error("LOGIN ERROR:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: error.message,
     });
   }
 };
 
-// ======================
-// Logout User
-// ======================
+// ======================================
+// Current User
+// ======================================
+
+export const getCurrentUser = async (req, res) => {
+  try {
+
+    return res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+
+  } catch (error) {
+
+    console.error("GET USER ERROR:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+
+  }
+};
+
+// ======================================
+// Logout
+// ======================================
 
 export const logoutUser = (req, res) => {
 
-  res.cookie("token", "", {
+  res.clearCookie("token", {
     httpOnly: true,
-    expires: new Date(0),
+    secure: false,
+    sameSite: "lax",
   });
 
-  res.json({
+  return res.status(200).json({
     success: true,
     message: "Logout Successful",
   });
