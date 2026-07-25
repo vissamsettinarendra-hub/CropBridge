@@ -18,7 +18,7 @@ const AboutHero = () => {
         </button>
       </div>
     </section>
-  );
+  ) ;
 };
 
 export default AboutHero;
