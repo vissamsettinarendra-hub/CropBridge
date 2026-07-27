@@ -10,7 +10,7 @@ export const authData = {
 
   register: {
     title: "Create Your Account",
-    subtitle: "Join India's largest agricultural marketplace.",
+    subtitle: "Join India's largest agricultural marketplace." ,
     image: registerBanner,
   },
 };
