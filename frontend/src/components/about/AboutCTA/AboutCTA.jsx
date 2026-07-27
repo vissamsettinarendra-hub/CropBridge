@@ -24,4 +24,4 @@ const AboutCTA = () => {
   );
 };
 
-export default AboutCTA;
+export default AboutCTA ;
