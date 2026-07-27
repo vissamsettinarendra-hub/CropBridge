@@ -6,7 +6,7 @@ import agriculture from "../assets/about/agriculture.jpg";
 
 export const aboutData = {
   hero: {
-    title: "Empowering Farmers. Connecting Industries.",
+    title: "Empowering Farmers. Connecting Industries." ,
     subtitle:
       "CropBridge is building India's smartest agricultural marketplace where farmers and industries connect directly."
   },
