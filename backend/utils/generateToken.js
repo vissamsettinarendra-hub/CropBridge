@@ -13,4 +13,4 @@ const generateToken = (id, role) => {
   );
 };
 
-export default generateToken;
+export default generateToken ;
