@@ -256,4 +256,4 @@ const AddCrop = ({ editMode = false }) => {
 
 };
 
-export default AddCrop;
+export default AddCrop ;
