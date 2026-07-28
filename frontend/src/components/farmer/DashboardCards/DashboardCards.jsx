@@ -4,7 +4,7 @@ import {
   FaShoppingCart,
   FaRupeeSign,
   FaTractor ,
-} from "react-icons/fa";
+} from "react-icons/fa" ;
 
 const DashboardCards = () => {
   return (
