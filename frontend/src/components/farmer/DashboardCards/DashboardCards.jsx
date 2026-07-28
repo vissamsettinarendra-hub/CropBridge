@@ -3,7 +3,7 @@ import {
   FaSeedling,
   FaShoppingCart,
   FaRupeeSign,
-  FaTractor,
+  FaTractor ,
 } from "react-icons/fa";
 
 const DashboardCards = () => {
