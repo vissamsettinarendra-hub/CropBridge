@@ -6,7 +6,7 @@ import {
   FaIndustry,
   FaSeedling,
   FaChartBar,
-} from "react-icons/fa";
+} from "react-icons/fa" ;
 
 const AdminSidebar = () => {
   return (
