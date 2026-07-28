@@ -10,7 +10,7 @@ import {
 } from "../controllers/cropController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
-import upload from "../middleware/uploadMiddleware.js";
+import upload from "../middleware/uploadMiddleware.js" ;
 
 const router = express.Router();
 
