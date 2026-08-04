@@ -222,7 +222,7 @@ function App() {
         />
 
         <Route
-          path="/admin/farmers "
+          path="/admin/farmers"
           element={
             <ProtectedRoute>
               <RoleProtectedRoute role="admin">
