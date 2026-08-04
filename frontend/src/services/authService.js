@@ -40,7 +40,7 @@ export const getCurrentUser = async () => {
 
 // Logout
 export const logoutUser = async () => {
-  const response = await fetch(`${API}/logout`, {
+  const response = await fetch(`${API}/logout`,{
     method: "POST",
     credentials: "include",
   });
