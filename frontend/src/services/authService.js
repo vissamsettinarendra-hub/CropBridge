@@ -13,7 +13,6 @@ export const registerUser = async (userData) => {
 
   return await response.json();
 };
-
 // Login
 export const loginUser = async (userData) => {
   const response = await fetch(`${API}/login`, {
@@ -27,7 +26,6 @@ export const loginUser = async (userData) => {
 
   return await response.json();
 };
-
 // Current User
 export const getCurrentUser = async () => {
   const response = await fetch(`${API}/me`, {
@@ -37,7 +35,6 @@ export const getCurrentUser = async () => {
 
   return await response.json();
 };
-
 // Logout
 export const logoutUser = async () => {
   const response = await fetch(`${API}/logout`,    {
