@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { getCurrentUser } from "../services/authService";
-
 const RoleProtectedRoute = ({ children, role }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -38,5 +37,4 @@ const RoleProtectedRoute = ({ children, role }) => {
 
   return children;
 };
-
 export default RoleProtectedRoute;
