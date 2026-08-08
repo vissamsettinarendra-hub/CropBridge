@@ -90,7 +90,6 @@ export const getCropById = async (id) => {
 // ==========================
 // Update Crop
 // ==========================
-
 export const updateCrop = async (id, cropData) => {
   try {
     const response = await fetch(`${API}/${id}`, {
@@ -113,14 +112,12 @@ export const updateCrop = async (id, cropData) => {
 // ==========================
 // Delete Crop
 // ==========================
-
 export const deleteCrop = async (id) => {
   try {
-    const response = await fetch(`${API}/${id}`, {
+    const response = await fetch(`${API}/${id}`,          {
       method: "DELETE",
       credentials: "include",
     });
-
     return await response.json();
   } catch (error) {
     console.error("DELETE CROP ERROR:", error);
