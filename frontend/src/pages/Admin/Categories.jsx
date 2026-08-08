@@ -1,9 +1,7 @@
 import "./AdminDashboard.css";
-
 import AdminSidebar from "../../components/admin/Sidebar/AdminSidebar";
 import AdminHeader from "../../components/admin/Dashboard/AdminHeader";
 import Categories from "../../components/admin/Categories/Categories";
-
 const CategoriesPage = () => {
   return (
     <div className="admin-dashboard">
@@ -18,5 +16,4 @@ const CategoriesPage = () => {
     </div>
   );
 };
-
 export default CategoriesPage;
