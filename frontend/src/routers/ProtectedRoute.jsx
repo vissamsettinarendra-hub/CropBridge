@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { getCurrentUser } from "../services/authService";
-
 const ProtectedRoute = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
@@ -32,5 +31,4 @@ const ProtectedRoute = ({ children }) => {
 
   return authenticated ? children : <Navigate to="/login" replace />;
 };
-
 export default ProtectedRoute;
