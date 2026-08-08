@@ -13,13 +13,11 @@
 .categories h2{
     margin-bottom:25px;
 }
-
 .category-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
-
 .category-card{
     background:#fff;
     padding:35px;
