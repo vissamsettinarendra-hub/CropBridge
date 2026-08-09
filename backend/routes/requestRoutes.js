@@ -28,11 +28,8 @@ router.get("/factory", protect, getFactoryRequests);
 
 // View Farmer Requests
 router.get("/farmer", protect, getFarmerRequests);
-
 // Accept Request
 router.put("/:id/accept", protect, acceptRequest);
-
 // Reject Request
 router.put("/:id/reject", protect, rejectRequest);
-
 export default router ;
