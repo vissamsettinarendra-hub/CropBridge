@@ -136,11 +136,9 @@ export const acceptRequest = async (req, res) => {
 
   }
 };
-
 // ====================================
 // Reject Request
 // ====================================
-
 export const rejectRequest = async (req, res) => {
   try {
 
