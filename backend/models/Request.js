@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const requestSchema = new mongoose.Schema(
   {
     crop: {
@@ -49,7 +48,6 @@ const requestSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
 export default mongoose.model(
   "Request",
   requestSchema
