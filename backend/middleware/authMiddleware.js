@@ -5,7 +5,6 @@ export const protect = async (req, res, next) => {
 
     // Read token from cookie
     const token = req.cookies.token;
-
     // Check token
     if (!token) {
       return res.status(401).json({
@@ -43,5 +42,4 @@ export const protect = async (req, res, next) => {
       message: "Invalid or Expired Token",
     });
   }
-
 };
