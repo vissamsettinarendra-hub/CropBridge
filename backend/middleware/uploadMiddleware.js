@@ -17,7 +17,6 @@ const storage = multer.diskStorage({
     );
   },
 });
-
 // File Filter
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpg|jpeg|png|webp/;
@@ -34,10 +33,8 @@ const fileFilter = (req, file, cb) => {
     cb(new Error("Only image files are allowed"));
   }
 };
-
 const upload = multer({
   storage,
   fileFilter,
 });
-
 export default upload;
