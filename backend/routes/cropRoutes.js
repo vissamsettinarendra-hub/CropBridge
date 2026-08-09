@@ -26,7 +26,6 @@ router.get("/my/crops", protect, getMyCrops);
 router.get("/:id", getCropById);
 
 // ================= Farmer Routes =================
-
 // Add Crop
 router.post(
   "/",
@@ -42,12 +41,10 @@ router.put(
   upload.single("image"),
   updateCrop
 );
-
 // Delete Crop
 router.delete(
   "/:id",
   protect,
   deleteCrop
 );
-
 export default router;
