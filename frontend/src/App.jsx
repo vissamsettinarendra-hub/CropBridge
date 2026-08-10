@@ -20,6 +20,7 @@ import Orders from "./pages/Farmer/Orders";
 import Payments from "./pages/Farmer/Payments";
 import Profile from "./pages/Farmer/Profile";
 import EditCrop from "./pages/Farmer/EditCrop";
+import FarmerRequests from "./pages/Farmer/Requests";
 
 // Factory Pages
 import FactoryDashboard from "./pages/Factory/FactoryDashboard";
@@ -28,6 +29,7 @@ import FactoryCropRequest from "./pages/Factory/CropRequest";
 import FactoryOrders from "./pages/Factory/Orders";
 import FactoryPayments from "./pages/Factory/Payments";
 import FactoryProfile from "./pages/Factory/Profile";
+
 
 // Admin Pages
 import AdminDashboard from "./pages/Admin/AdminDashboard";
@@ -139,6 +141,14 @@ function App() {
                 <EditCrop />
               </RoleProtectedRoute>
             }/>
+            <Route
+            path="/farmer/requests"
+            element={
+              <RoleProtectedRoute role="farmer">
+                <FarmerRequests />
+              </RoleProtectedRoute>
+            }
+          />
 
         {/* Factory Routes */}
 
@@ -205,6 +215,15 @@ function App() {
                 <FactoryProfile />
               </RoleProtectedRoute>
             </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/factory/requests"
+          element={
+            <RoleProtectedRoute role="factory">
+              <FactoryRequests />
+            </RoleProtectedRoute>
           }
         />
 
