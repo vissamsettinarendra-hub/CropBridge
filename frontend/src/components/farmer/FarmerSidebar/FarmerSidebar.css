@@ -1,12 +1,17 @@
 .farmer-sidebar {
   width: 250px;
   min-height: 100vh;
-  background: #2E7D32;
+  background: #2e7d32;
   color: white;
   padding: 20px;
   position: sticky;
   top: 0;
+  box-sizing: border-box;
 }
+
+/* =========================
+   Logo
+========================= */
 
 .sidebar-logo {
   text-align: center;
@@ -20,33 +25,75 @@
   margin-top: 10px;
 }
 
+/* =========================
+   Navigation
+========================= */
+
 .farmer-sidebar nav {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .farmer-sidebar nav a {
   display: flex;
   align-items: center;
   gap: 12px;
+
   text-decoration: none;
   color: white;
+
   padding: 14px;
   border-radius: 10px;
-  transition: .3s;
+
+  transition: all 0.3s ease;
 }
 
 .farmer-sidebar nav a:hover {
-  background: rgba(255,255,255,.15);
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(3px);
 }
 
 .farmer-sidebar nav a.active {
   background: white;
-  color: #2E7D32;
+  color: #2e7d32;
   font-weight: 600;
 }
 
+/* =========================
+   Icons
+========================= */
+
 .farmer-sidebar svg {
   font-size: 18px;
+  min-width: 18px;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+  .farmer-sidebar {
+    width: 80px;
+    padding: 15px 10px;
+  }
+
+  .sidebar-logo {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .sidebar-logo span {
+    display: none;
+  }
+
+  .farmer-sidebar nav a {
+    justify-content: center;
+    padding: 14px 10px;
+  }
+
+  .farmer-sidebar nav a span {
+    display: none;
+  }
 }
