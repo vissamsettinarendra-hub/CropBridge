@@ -9,3 +9,315 @@
     padding:30px;
     overflow-y:auto;
 }
+.dashboard-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.dashboard-card-header h2 {
+  margin-bottom: 6px;
+}
+
+.dashboard-card-header p {
+  margin: 0;
+  color: #777;
+}
+
+.refresh-btn {
+  border: none;
+  background: #2e7d32;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.crop-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.crop-table th,
+.crop-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.crop-table th {
+  background: #f5f7f5;
+  color: #333;
+}
+
+.crop-table td strong {
+  display: block;
+}
+
+.crop-table td small {
+  display: block;
+  margin-top: 4px;
+  color: #777;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.request-btn {
+  border: none;
+  background: #2e7d32;
+  color: white;
+  padding: 9px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.request-btn:hover {
+  background: #256b29;
+}
+
+.request-btn.disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state h3 {
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: #777;
+}
+
+/* ==========================================
+   Request Modal
+========================================== */
+
+.request-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  padding: 20px;
+}
+
+.request-modal {
+  width: 100%;
+  max-width: 600px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  padding: 25px;
+
+  max-height: 90vh;
+  overflow-y: auto;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.request-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 20px;
+}
+
+.request-modal-header h2 {
+  margin: 0 0 5px;
+}
+
+.request-modal-header p {
+  margin: 0;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.close-modal {
+  border: none;
+  background: #f2f2f2;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+.request-crop-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin-bottom: 25px;
+}
+
+.request-crop-info div {
+  background: #f4f8f4;
+
+  padding: 15px;
+
+  border-radius: 10px;
+}
+
+.request-crop-info span {
+  display: block;
+
+  color: #777;
+
+  font-size: 13px;
+
+  margin-bottom: 5px;
+}
+
+.request-crop-info strong {
+  color: #2e7d32;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-weight: 600;
+
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2e7d32;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.request-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.cancel-btn,
+.submit-request-btn {
+  border: none;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background: #eee;
+  color: #333;
+}
+
+.submit-request-btn {
+  background: #2e7d32;
+  color: white;
+}
+
+.submit-request-btn:hover {
+  background: #256b29;
+}
+
+.cancel-btn:disabled,
+.submit-request-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 768px) {
+  .dashboard-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .request-crop-info {
+    grid-template-columns: 1fr;
+  }
+
+  .request-modal {
+    padding: 20px;
+  }
+
+  .request-form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .submit-request-btn {
+    width: 100%;
+  }
+}
