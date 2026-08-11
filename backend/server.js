@@ -8,6 +8,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import cropRoutes from "./routes/cropRoutes.js";
 import requestRoutes from "./routes/requestRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 dotenv.config();
 
@@ -45,6 +46,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/crops", cropRoutes);
 
 app.use("/api/requests", requestRoutes);
+
+app.use("/api/orders", orderRoutes);
 
 // Server
 const PORT = process.env.PORT || 5000;
