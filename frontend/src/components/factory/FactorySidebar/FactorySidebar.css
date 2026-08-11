@@ -1,52 +1,125 @@
-.factory-sidebar{
-    width:250px;
-    min-height:100vh;
-    background:#1565C0;
-    color:white;
-    padding:20px;
-    position:sticky;
-    top:0;
+.factory-sidebar {
+  width: 250px;
+  min-height: 100vh;
+
+  background: #1565c0;
+  color: white;
+
+  padding: 20px;
+
+  position: sticky;
+  top: 0;
+
+  box-sizing: border-box;
 }
 
-.sidebar-logo{
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:40px;
+/* ==========================================
+   Logo
+========================================== */
+
+.sidebar-logo {
+  text-align: center;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  margin-bottom: 40px;
 }
 
-.sidebar-logo span{
-    display:block;
-    margin-top:10px;
+.sidebar-logo span {
+  display: block;
+
+  margin-top: 10px;
 }
 
-.factory-sidebar nav{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+/* ==========================================
+   Navigation
+========================================== */
+
+.factory-sidebar nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
 }
 
-.factory-sidebar nav a{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    color:white;
-    text-decoration:none;
-    padding:14px;
-    border-radius:10px;
-    transition:.3s;
+.factory-sidebar nav a {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: white;
+  text-decoration: none;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
 }
 
-.factory-sidebar nav a:hover{
-    background:rgba(255,255,255,.15);
+/* ==========================================
+   Hover
+========================================== */
+
+.factory-sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+
+  transform: translateX(3px);
 }
 
-.factory-sidebar nav a.active{
-    background:white;
-    color:#1565C0;
-    font-weight:600;
+/* ==========================================
+   Active
+========================================== */
+
+.factory-sidebar nav a.active {
+  background: white;
+
+  color: #1565c0;
+
+  font-weight: 600;
 }
 
-.factory-sidebar svg{
-    font-size:18px;
+/* ==========================================
+   Icons
+========================================== */
+
+.factory-sidebar svg {
+  font-size: 18px;
+
+  min-width: 18px;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width: 768px) {
+
+  .factory-sidebar {
+    width: 80px;
+
+    padding: 15px 10px;
+  }
+
+  .sidebar-logo {
+    font-size: 20px;
+
+    margin-bottom: 25px;
+  }
+
+  .sidebar-logo span {
+    display: none;
+  }
+
+  .factory-sidebar nav a {
+    justify-content: center;
+
+    padding: 14px 10px;
+  }
+
+  .factory-sidebar nav a span {
+    display: none;
+  }
 }
