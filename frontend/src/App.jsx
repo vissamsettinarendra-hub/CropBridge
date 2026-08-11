@@ -29,6 +29,7 @@ import FactoryCropRequest from "./pages/Factory/CropRequest";
 import FactoryOrders from "./pages/Factory/Orders";
 import FactoryPayments from "./pages/Factory/Payments";
 import FactoryProfile from "./pages/Factory/Profile";
+import FactoryRequests from "./pages/Factory/FactoryRequests";
 
 
 // Admin Pages
@@ -219,7 +220,7 @@ function App() {
         />
 
         <Route
-          path="/factory/requests"
+          path="/factory/crop-request"
           element={
             <RoleProtectedRoute role="factory">
               <FactoryRequests />
