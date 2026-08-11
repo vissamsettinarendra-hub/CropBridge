@@ -1,5 +1,6 @@
 import Request from "../models/Request.js";
 import Crop from "../models/Crop.js";
+import Order from "../models/Order.js";
 
 // ====================================
 // Factory Sends Crop Request
@@ -197,11 +198,12 @@ export const getFarmerRequests = async (req, res) => {
 };
 
 // ====================================
-// Accept Request
+// Accept Request + Create Order
 // ====================================
 
 export const acceptRequest = async (req, res) => {
   try {
+    // Only farmer can accept
     if (req.user.role !== "farmer") {
       return res.status(403).json({
         success: false,
@@ -209,6 +211,7 @@ export const acceptRequest = async (req, res) => {
       });
     }
 
+    // Find request
     const request = await Request.findById(req.params.id);
 
     if (!request) {
@@ -218,11 +221,15 @@ export const acceptRequest = async (req, res) => {
       });
     }
 
-    // Make sure this farmer owns the request
-    if (request.farmer.toString() !== req.user._id.toString()) {
+    // Check request belongs to logged-in farmer
+    if (
+      request.farmer.toString() !==
+      req.user._id.toString()
+    ) {
       return res.status(403).json({
         success: false,
-        message: "You are not authorized to accept this request.",
+        message:
+          "You are not authorized to accept this request.",
       });
     }
 
@@ -230,7 +237,8 @@ export const acceptRequest = async (req, res) => {
     if (request.status !== "Pending") {
       return res.status(400).json({
         success: false,
-        message: `Request is already ${request.status}.`,
+        message:
+          `Request is already ${request.status}.`,
       });
     }
 
@@ -240,33 +248,86 @@ export const acceptRequest = async (req, res) => {
     if (!crop) {
       return res.status(404).json({
         success: false,
-        message: "Crop associated with this request was not found.",
+        message: "Crop not found.",
       });
     }
 
-    // Check available quantity
-    if (request.requestedQuantity > crop.quantity) {
+    // Check quantity
+    if (
+      request.requestedQuantity >
+      crop.quantity
+    ) {
       return res.status(400).json({
         success: false,
-        message: "Requested quantity is no longer available.",
+        message:
+          "Requested quantity is no longer available.",
       });
     }
 
-    // Accept request
+    // ====================================
+    // Calculate total amount
+    // ====================================
+
+    const totalAmount =
+      request.requestedQuantity *
+      request.offeredPrice;
+
+    // ====================================
+    // Create Order
+    // ====================================
+
+    const order = await Order.create({
+      crop: request.crop,
+
+      farmer: request.farmer,
+
+      factory: request.factory,
+
+      request: request._id,
+
+      quantity: request.requestedQuantity,
+
+      pricePerKg: request.offeredPrice,
+
+      totalAmount: totalAmount,
+
+      orderStatus: "Pending",
+
+      paymentStatus: "Pending",
+
+      deliveryAddress: "",
+
+      notes: request.message || "",
+    });
+
+    // ====================================
+    // Update Request
+    // ====================================
+
     request.status = "Accepted";
 
     await request.save();
 
-    // Mark crop as requested
+    // ====================================
+    // Update Crop
+    // ====================================
+
     crop.status = "Requested";
 
     await crop.save();
 
-    // Reject other pending requests for same crop
+    // ====================================
+    // Reject Other Pending Requests
+    // ====================================
+
     await Request.updateMany(
       {
         crop: request.crop,
-        _id: { $ne: request._id },
+
+        _id: {
+          $ne: request._id,
+        },
+
         status: "Pending",
       },
       {
@@ -276,13 +337,27 @@ export const acceptRequest = async (req, res) => {
       }
     );
 
+    // ====================================
+    // Response
+    // ====================================
+
     return res.status(200).json({
       success: true,
-      message: "Crop request accepted successfully.",
+
+      message:
+        "Request accepted and order created successfully.",
+
       request,
+
+      order,
     });
+
   } catch (error) {
-    console.error("ACCEPT REQUEST ERROR:", error);
+
+    console.error(
+      "ACCEPT REQUEST ERROR:",
+      error
+    );
 
     return res.status(500).json({
       success: false,
@@ -290,7 +365,6 @@ export const acceptRequest = async (req, res) => {
     });
   }
 };
-
 // ====================================
 // Reject Request
 // ====================================
