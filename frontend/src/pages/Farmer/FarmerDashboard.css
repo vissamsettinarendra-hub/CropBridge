@@ -39,3 +39,64 @@
     padding:6px 12px;
     cursor:pointer;
 }
+
+/* ==========================================
+   Order Status
+========================================== */
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.confirmed {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status.processing {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.status.shipped {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.status.delivered {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.accept-btn,
+.submit-request-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.accept-btn {
+  background: #2e7d32;
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #256b29;
+}
+
+.submit-request-btn {
+  background: #1565c0;
+  color: white;
+}
+
+.submit-request-btn:hover {
+  background: #0d47a1;
+}
