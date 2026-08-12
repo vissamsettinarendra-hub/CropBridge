@@ -1,7 +1,5 @@
 import "./FactorySidebar.css";
-
 import { NavLink } from "react-router-dom";
-
 import {
   FaHome,
   FaSeedling,
@@ -77,5 +75,4 @@ const FactorySidebar = () => {
     </aside>
   );
 };
-
 export default FactorySidebar;
