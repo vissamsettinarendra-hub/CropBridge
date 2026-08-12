@@ -9,13 +9,11 @@
     font-size:42px;
     margin-bottom:20px;
 }
-
 .categories-cta p{
     max-width:650px;
     margin:0 auto 40px;
     line-height:1.8;
 }
-
 .categories-cta button{
     padding:15px 40px;
     border:none;
@@ -27,7 +25,6 @@
     cursor:pointer;
     transition:.3s;
 }
-
 .categories-cta button:hover{
     transform:translateY(-5px);
 }
