@@ -1,6 +1,5 @@
 import "./FactoryHeader.css";
 import { FaBell, FaUserCircle } from "react-icons/fa";
-
 const FactoryHeader = () => {
   return (
     <header className="factory-header">
@@ -18,5 +17,4 @@ const FactoryHeader = () => {
     </header>
   );
 };
-
 export default FactoryHeader;
