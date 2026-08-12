@@ -1,6 +1,5 @@
 import "./CategoriesCTA.css";
 import { Link } from "react-router-dom";
-
 const CategoriesCTA = () => {
   return (
     <section className="categories-cta">
@@ -18,5 +17,4 @@ const CategoriesCTA = () => {
     </section>
   );
 };
-
 export default CategoriesCTA;
