@@ -33,8 +33,12 @@ const fileFilter = (req, file, cb) => {
     cb(new Error("Only image files are allowed"));
   }
 };
+
+
 const upload = multer({
   storage,
   fileFilter,
 });
+
+
 export default upload;
