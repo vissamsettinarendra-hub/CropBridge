@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 export const protect = async (req, res, next) => {
   try {
-
     // Read token from cookie
     const token = req.cookies.token;
     // Check token
@@ -12,13 +11,11 @@ export const protect = async (req, res, next) => {
         message: "Access Denied. Please Login.",
       });
     }
-
     // Verify token
     const decoded = jwt.verify(
       token,
       process.env.JWT_SECRET
     );
-
     // Find user
     const user = await User.findById(decoded.id).select("-password");
 
