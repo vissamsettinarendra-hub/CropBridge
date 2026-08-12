@@ -315,7 +315,6 @@ export const acceptRequest = async (req, res) => {
     crop.status = "Requested";
 
     await crop.save();
-
     // ====================================
     // Reject Other Pending Requests
     // ====================================
@@ -336,7 +335,6 @@ export const acceptRequest = async (req, res) => {
         },
       }
     );
-
     // ====================================
     // Response
     // ====================================
