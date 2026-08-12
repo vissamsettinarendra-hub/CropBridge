@@ -18,8 +18,10 @@ router.post("/register", registerUser);
 
 // Login
 router.post("/login", loginUser);
+
 // Logout
 router.post("/logout", logoutUser);
+
 // Current Logged-in User
 router.get("/me", protect, getCurrentUser);
 export default router ;
