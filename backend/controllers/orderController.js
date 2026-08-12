@@ -148,7 +148,6 @@ export const getOrderById = async (req, res) => {
     });
   }
 };
-
 // ====================================
 // Update Order Status
 // ====================================
@@ -181,9 +180,7 @@ export const updateOrderStatus = async (req, res) => {
         message: "Order not found.",
       });
     }
-
     const userId = req.user._id.toString();
-
     const isFarmer =
       order.farmer.toString() === userId;
 
