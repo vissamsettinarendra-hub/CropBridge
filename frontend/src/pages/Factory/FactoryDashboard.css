@@ -321,3 +321,44 @@
     width: 100%;
   }
 }
+
+/* ==========================================
+   Order Actions
+========================================== */
+
+.completed-text {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.cancelled-text {
+  color: #c62828;
+  font-weight: 600;
+}
+
+.accept-btn,
+.submit-request-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.accept-btn {
+  background: #2e7d32;
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #256b29;
+}
+
+.submit-request-btn {
+  background: #1565c0;
+  color: white;
+}
+
+.submit-request-btn:hover {
+  background: #0d47a1;
+}
