@@ -11,16 +11,44 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// Farmer orders
-router.get("/farmer", protect, getFarmerOrders);
+// ====================================
+// Farmer Orders
+// ====================================
 
-// Factory orders
-router.get("/factory", protect, getFactoryOrders);
+router.get(
+  "/farmer",
+  protect,
+  getFarmerOrders
+);
 
-// Single order
-router.get("/:id", protect, getOrderById);
+// ====================================
+// Factory Orders
+// ====================================
 
-// Update order status
-router.put("/:id/status", protect, updateOrderStatus);
+router.get(
+  "/factory",
+  protect,
+  getFactoryOrders
+);
+
+// ====================================
+// Get Single Order
+// ====================================
+
+router.get(
+  "/:id",
+  protect,
+  getOrderById
+);
+
+// ====================================
+// Update Order Status
+// ====================================
+
+router.put(
+  "/:id/status",
+  protect,
+  updateOrderStatus
+);
 
 export default router;
