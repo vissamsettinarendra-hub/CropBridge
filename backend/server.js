@@ -9,6 +9,7 @@ import authRoutes from "./routes/authRoutes.js";
 import cropRoutes from "./routes/cropRoutes.js";
 import requestRoutes from "./routes/requestRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
 
 dotenv.config();
 
@@ -48,6 +49,8 @@ app.use("/api/crops", cropRoutes);
 app.use("/api/requests", requestRoutes);
 
 app.use("/api/orders", orderRoutes);
+
+app.use("/api/payments",paymentRoutes);
 
 // Server
 const PORT = process.env.PORT || 5000;
