@@ -5,89 +5,76 @@ import { useEffect, useState } from "react";
 import FarmerSidebar from "../../components/farmer/FarmerSidebar/FarmerSidebar";
 import FarmerHeader from "../../components/farmer/FarmerHeader/FarmerHeader";
 
-const API = "http://localhost:5000/api/orders";
+const API = "http://localhost:5000/api";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+
   const [loading, setLoading] = useState(true);
 
   // ==========================================
-  // Fetch Farmer Orders
+  // Get Farmer Orders
   // ==========================================
 
   const fetchOrders = async () => {
     try {
       setLoading(true);
 
-      const response = await fetch(`${API}/farmer`, {
-        method: "GET",
-        credentials: "include",
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setOrders(data.orders || []);
-      } else {
-        alert(data.message || "Failed to load orders");
-      }
-    } catch (error) {
-      console.error("FETCH FARMER ORDERS ERROR:", error);
-      alert("Unable to load orders.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchOrders();
-  }, []);
-
-  // ==========================================
-  // Update Order Status
-  // ==========================================
-
-  const updateStatus = async (orderId, status) => {
-    const confirmUpdate = window.confirm(
-      `Change order status to "${status}"?`
-    );
-
-    if (!confirmUpdate) return;
-
-    try {
       const response = await fetch(
-        `${API}/${orderId}/status`,
+        `${API}/orders/farmer`,
         {
-          method: "PUT",
+          method: "GET",
           credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            status,
-          }),
         }
       );
 
       const data = await response.json();
 
       if (data.success) {
-        alert("Order status updated successfully.");
-        fetchOrders();
+        setOrders(data.orders || []);
       } else {
-        alert(
-          data.message ||
-            "Failed to update order status."
-        );
+        console.error(data.message);
       }
     } catch (error) {
       console.error(
-        "UPDATE ORDER STATUS ERROR:",
+        "FETCH FARMER ORDERS ERROR:",
         error
       );
-
-      alert("Unable to update order status.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  // ==========================================
+  // Initial Load
+  // ==========================================
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  // ==========================================
+  // Format Amount
+  // ==========================================
+
+  const formatAmount = (amount) => {
+    return Number(amount || 0).toLocaleString(
+      "en-IN"
+    );
+  };
+
+  // ==========================================
+  // Format Date
+  // ==========================================
+
+  const formatDate = (date) => {
+    if (!date) {
+      return "N/A";
+    }
+
+    return new Date(date).toLocaleDateString(
+      "en-IN"
+    );
   };
 
   // ==========================================
@@ -96,6 +83,9 @@ const Orders = () => {
 
   const getStatusClass = (status) => {
     switch (status) {
+      case "Pending":
+        return "status pending";
+
       case "Confirmed":
         return "status confirmed";
 
@@ -111,7 +101,6 @@ const Orders = () => {
       case "Cancelled":
         return "status cancelled";
 
-      case "Pending":
       default:
         return "status pending";
     }
@@ -132,17 +121,23 @@ const Orders = () => {
 
         <div className="dashboard-card">
 
-          {/* Header */}
+          {/* ==================================
+              Header
+          ================================== */}
 
           <div className="dashboard-card-header">
 
             <div>
-              <h2>My Orders</h2>
+
+              <h2>
+                My Orders
+              </h2>
 
               <p>
-                View and manage orders received
-                from factories.
+                Track orders received from
+                factories.
               </p>
+
             </div>
 
             <button
@@ -150,18 +145,24 @@ const Orders = () => {
               onClick={fetchOrders}
               disabled={loading}
             >
-              {loading ? "Loading..." : "Refresh"}
+              {loading
+                ? "Loading..."
+                : "Refresh"}
             </button>
 
           </div>
 
-          {/* Loading */}
+          {/* ==================================
+              Loading
+          ================================== */}
 
           {loading ? (
 
             <div className="empty-state">
 
-              <h3>Loading Orders...</h3>
+              <h3>
+                Loading Orders...
+              </h3>
 
               <p>
                 Please wait while we fetch
@@ -172,22 +173,28 @@ const Orders = () => {
 
           ) : orders.length === 0 ? (
 
-            /* Empty */
+            /* =================================
+               No Orders
+            ================================= */
 
             <div className="empty-state">
 
-              <h3>No Orders Yet</h3>
+              <h3>
+                No Orders Yet
+              </h3>
 
               <p>
-                Orders will appear here when a
-                factory request is accepted.
+                Orders created from accepted
+                crop requests will appear here.
               </p>
 
             </div>
 
           ) : (
 
-            /* Orders Table */
+            /* =================================
+               Orders Table
+            ================================= */
 
             <div className="table-container">
 
@@ -197,21 +204,41 @@ const Orders = () => {
 
                   <tr>
 
-                    <th>Crop</th>
+                    <th>
+                      Order
+                    </th>
 
-                    <th>Factory</th>
+                    <th>
+                      Crop
+                    </th>
 
-                    <th>Quantity</th>
+                    <th>
+                      Factory
+                    </th>
 
-                    <th>Price / Kg</th>
+                    <th>
+                      Quantity
+                    </th>
 
-                    <th>Total Amount</th>
+                    <th>
+                      Price / Kg
+                    </th>
 
-                    <th>Order Status</th>
+                    <th>
+                      Total
+                    </th>
 
-                    <th>Payment</th>
+                    <th>
+                      Payment
+                    </th>
 
-                    <th>Action</th>
+                    <th>
+                      Status
+                    </th>
+
+                    <th>
+                      Date
+                    </th>
 
                   </tr>
 
@@ -219,174 +246,161 @@ const Orders = () => {
 
                 <tbody>
 
-                  {orders.map((order) => (
+                  {orders.map(
+                    (order) => (
 
-                    <tr key={order._id}>
+                      <tr
+                        key={
+                          order._id
+                        }
+                      >
 
-                      {/* Crop */}
+                        {/* Order */}
 
-                      <td>
+                        <td>
 
-                        <strong>
-                          {order.crop?.cropName ||
-                            "N/A"}
-                        </strong>
+                          <strong>
 
-                        <small>
-                          {order.crop?.category ||
-                            ""}
-                        </small>
+                            #
+                            {order._id?.slice(
+                              -6
+                            ) ||
+                              "N/A"}
 
-                      </td>
+                          </strong>
 
-                      {/* Factory */}
+                        </td>
 
-                      <td>
+                        {/* Crop */}
 
-                        <strong>
-                          {order.factory?.name ||
-                            "N/A"}
-                        </strong>
+                        <td>
 
-                        <small>
-                          {order.factory?.email ||
-                            ""}
-                        </small>
+                          <strong>
 
-                      </td>
+                            {order.crop
+                              ?.cropName ||
+                              "N/A"}
 
-                      {/* Quantity */}
+                          </strong>
 
-                      <td>
-                        {order.quantity} Kg
-                      </td>
+                          <small>
 
-                      {/* Price */}
+                            {order.crop
+                              ?.category ||
+                              ""}
 
-                      <td>
-                        ₹{order.pricePerKg}
-                      </td>
+                          </small>
 
-                      {/* Total */}
+                        </td>
 
-                      <td>
-                        ₹{order.totalAmount}
-                      </td>
+                        {/* Factory */}
 
-                      {/* Order Status */}
+                        <td>
 
-                      <td>
+                          <strong>
 
-                        <span
-                          className={getStatusClass(
-                            order.orderStatus
+                            {order.factory
+                              ?.name ||
+                              "N/A"}
+
+                          </strong>
+
+                          <small>
+
+                            {order.factory
+                              ?.email ||
+                              ""}
+
+                          </small>
+
+                        </td>
+
+                        {/* Quantity */}
+
+                        <td>
+
+                          {order.quantity ||
+                            0}{" "}
+                          Kg
+
+                        </td>
+
+                        {/* Price */}
+
+                        <td>
+
+                          ₹
+                          {formatAmount(
+                            order.pricePerKg
                           )}
-                        >
-                          {order.orderStatus}
-                        </span>
 
-                      </td>
+                        </td>
 
-                      {/* Payment */}
+                        {/* Total */}
 
-                      <td>
+                        <td>
 
-                        <span
-                          className={getStatusClass(
-                            order.paymentStatus
-                          )}
-                        >
-                          {order.paymentStatus}
-                        </span>
+                          <strong>
 
-                      </td>
+                            ₹
+                            {formatAmount(
+                              order.totalAmount
+                            )}
 
-                      {/* Actions */}
+                          </strong>
 
-                      <td>
+                        </td>
 
-                        {order.orderStatus ===
-                          "Pending" && (
+                        {/* Payment */}
 
-                          <button
-                            className="accept-btn"
-                            onClick={() =>
-                              updateStatus(
-                                order._id,
-                                "Confirmed"
-                              )
-                            }
+                        <td>
+
+                          <span
+                            className={getStatusClass(
+                              order.paymentStatus
+                            )}
                           >
-                            Confirm
-                          </button>
 
-                        )}
-
-                        {order.orderStatus ===
-                          "Confirmed" && (
-
-                          <button
-                            className="submit-request-btn"
-                            onClick={() =>
-                              updateStatus(
-                                order._id,
-                                "Processing"
-                              )
+                            {
+                              order.paymentStatus
                             }
-                          >
-                            Process
-                          </button>
 
-                        )}
-
-                        {order.orderStatus ===
-                          "Processing" && (
-
-                          <button
-                            className="submit-request-btn"
-                            onClick={() =>
-                              updateStatus(
-                                order._id,
-                                "Shipped"
-                              )
-                            }
-                          >
-                            Ship
-                          </button>
-
-                        )}
-
-                        {order.orderStatus ===
-                          "Shipped" && (
-
-                          <button
-                            className="submit-request-btn"
-                            onClick={() =>
-                              updateStatus(
-                                order._id,
-                                "Delivered"
-                              )
-                            }
-                          >
-                            Delivered
-                          </button>
-
-                        )}
-
-                        {order.orderStatus ===
-                          "Delivered" && (
-
-                          <span>
-                            Completed
                           </span>
 
-                        )}
+                        </td>
 
-                      </td>
+                        {/* Order Status */}
 
-                    </tr>
+                        <td>
 
-                  ))}
+                          <span
+                            className={getStatusClass(
+                              order.orderStatus
+                            )}
+                          >
+
+                            {
+                              order.orderStatus
+                            }
+
+                          </span>
+
+                        </td>
+
+                        {/* Date */}
+
+                        <td>
+
+                          {formatDate(
+                            order.createdAt
+                          )}
+
+                        </td>
+
+                      </tr>
+
+                    )
+                  )}
 
                 </tbody>
 
