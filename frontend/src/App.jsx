@@ -189,11 +189,9 @@ function App() {
         <Route
           path="/factory/orders"
           element={
-            <ProtectedRoute>
-              <RoleProtectedRoute role="factory">
-                <FactoryOrders />
-              </RoleProtectedRoute>
-            </ProtectedRoute>
+            <RoleProtectedRoute role="factory">
+              <FactoryOrders />
+            </RoleProtectedRoute>
           }
         />
 
