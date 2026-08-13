@@ -6,6 +6,7 @@ import Order from "../models/Order.js";
 
 export const getFarmerOrders = async (req, res) => {
   try {
+    // Only farmers can view farmer orders
     if (req.user.role !== "farmer") {
       return res.status(403).json({
         success: false,
@@ -18,7 +19,7 @@ export const getFarmerOrders = async (req, res) => {
     })
       .populate(
         "crop",
-        "cropName category quantity price location image"
+        "cropName category quantity price location image status"
       )
       .populate(
         "factory",
@@ -26,16 +27,21 @@ export const getFarmerOrders = async (req, res) => {
       )
       .populate(
         "request",
-        "requestedQuantity offeredPrice status"
+        "requestedQuantity offeredPrice status message"
       )
-      .sort({ createdAt: -1 });
+      .sort({
+        createdAt: -1,
+      });
 
     return res.status(200).json({
       success: true,
       orders,
     });
   } catch (error) {
-    console.error("GET FARMER ORDERS ERROR:", error);
+    console.error(
+      "GET FARMER ORDERS ERROR:",
+      error
+    );
 
     return res.status(500).json({
       success: false,
@@ -50,10 +56,12 @@ export const getFarmerOrders = async (req, res) => {
 
 export const getFactoryOrders = async (req, res) => {
   try {
+    // Only factories can view factory orders
     if (req.user.role !== "factory") {
       return res.status(403).json({
         success: false,
-        message: "Only factories can view factory orders.",
+        message:
+          "Only factories can view factory orders.",
       });
     }
 
@@ -62,7 +70,7 @@ export const getFactoryOrders = async (req, res) => {
     })
       .populate(
         "crop",
-        "cropName category quantity price location image"
+        "cropName category quantity price location image status"
       )
       .populate(
         "farmer",
@@ -70,16 +78,21 @@ export const getFactoryOrders = async (req, res) => {
       )
       .populate(
         "request",
-        "requestedQuantity offeredPrice status"
+        "requestedQuantity offeredPrice status message"
       )
-      .sort({ createdAt: -1 });
+      .sort({
+        createdAt: -1,
+      });
 
     return res.status(200).json({
       success: true,
       orders,
     });
   } catch (error) {
-    console.error("GET FACTORY ORDERS ERROR:", error);
+    console.error(
+      "GET FACTORY ORDERS ERROR:",
+      error
+    );
 
     return res.status(500).json({
       success: false,
@@ -94,10 +107,12 @@ export const getFactoryOrders = async (req, res) => {
 
 export const getOrderById = async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id)
+    const order = await Order.findById(
+      req.params.id
+    )
       .populate(
         "crop",
-        "cropName category quantity price location image"
+        "cropName category quantity price location image status"
       )
       .populate(
         "farmer",
@@ -112,6 +127,7 @@ export const getOrderById = async (req, res) => {
         "requestedQuantity offeredPrice status message"
       );
 
+    // Check order
     if (!order) {
       return res.status(404).json({
         success: false,
@@ -119,19 +135,36 @@ export const getOrderById = async (req, res) => {
       });
     }
 
-    // Only farmer or factory involved in order can view it
+    // ====================================
+    // Authorization
+    // ====================================
+
     const userId = req.user._id.toString();
 
+    const farmerId =
+      order.farmer?._id?.toString();
+
+    const factoryId =
+      order.factory?._id?.toString();
+
     const isFarmer =
-      order.farmer._id.toString() === userId;
+      farmerId === userId;
 
     const isFactory =
-      order.factory._id.toString() === userId;
+      factoryId === userId;
 
-    if (!isFarmer && !isFactory && req.user.role !== "admin") {
+    const isAdmin =
+      req.user.role === "admin";
+
+    if (
+      !isFarmer &&
+      !isFactory &&
+      !isAdmin
+    ) {
       return res.status(403).json({
         success: false,
-        message: "You are not authorized to view this order.",
+        message:
+          "You are not authorized to view this order.",
       });
     }
 
@@ -140,7 +173,10 @@ export const getOrderById = async (req, res) => {
       order,
     });
   } catch (error) {
-    console.error("GET ORDER ERROR:", error);
+    console.error(
+      "GET ORDER ERROR:",
+      error
+    );
 
     return res.status(500).json({
       success: false,
@@ -148,13 +184,21 @@ export const getOrderById = async (req, res) => {
     });
   }
 };
+
 // ====================================
 // Update Order Status
 // ====================================
 
-export const updateOrderStatus = async (req, res) => {
+export const updateOrderStatus = async (
+  req,
+  res
+) => {
   try {
     const { status } = req.body;
+
+    // ====================================
+    // Allowed Statuses
+    // ====================================
 
     const allowedStatuses = [
       "Pending",
@@ -168,11 +212,18 @@ export const updateOrderStatus = async (req, res) => {
     if (!allowedStatuses.includes(status)) {
       return res.status(400).json({
         success: false,
-        message: "Invalid order status.",
+        message:
+          "Invalid order status.",
       });
     }
 
-    const order = await Order.findById(req.params.id);
+    // ====================================
+    // Find Order
+    // ====================================
+
+    const order = await Order.findById(
+      req.params.id
+    );
 
     if (!order) {
       return res.status(404).json({
@@ -180,14 +231,33 @@ export const updateOrderStatus = async (req, res) => {
         message: "Order not found.",
       });
     }
+
+    // ====================================
+    // Authorization
+    // ====================================
+
     const userId = req.user._id.toString();
+
+    const farmerId =
+      order.farmer.toString();
+
+    const factoryId =
+      order.factory.toString();
+
     const isFarmer =
-      order.farmer.toString() === userId;
+      farmerId === userId;
 
     const isFactory =
-      order.factory.toString() === userId;
+      factoryId === userId;
 
-    if (!isFarmer && !isFactory && req.user.role !== "admin") {
+    const isAdmin =
+      req.user.role === "admin";
+
+    if (
+      !isFarmer &&
+      !isFactory &&
+      !isAdmin
+    ) {
       return res.status(403).json({
         success: false,
         message:
@@ -195,17 +265,25 @@ export const updateOrderStatus = async (req, res) => {
       });
     }
 
+    // ====================================
+    // Update Status
+    // ====================================
+
     order.orderStatus = status;
 
     await order.save();
 
     return res.status(200).json({
       success: true,
-      message: "Order status updated successfully.",
+      message:
+        "Order status updated successfully.",
       order,
     });
   } catch (error) {
-    console.error("UPDATE ORDER STATUS ERROR:", error);
+    console.error(
+      "UPDATE ORDER STATUS ERROR:",
+      error
+    );
 
     return res.status(500).json({
       success: false,
