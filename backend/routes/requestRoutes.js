@@ -19,4 +19,4 @@ router.get("/farmer", protect, getFarmerRequests);
 router.put("/:id/accept", protect, acceptRequest);
 router.put("/:id/reject", protect, rejectRequest);
 
-export default router;
+export default router;  
