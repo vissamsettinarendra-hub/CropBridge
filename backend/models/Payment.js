@@ -69,4 +69,4 @@ const Payment = mongoose.model(
   paymentSchema
 );
 
-export default Payment;
+export default Payment;     
