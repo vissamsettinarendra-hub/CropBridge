@@ -14,6 +14,7 @@ const router = express.Router();
 // Factory
 router.post("/", protect, sendRequest);
 router.get("/factory", protect, getFactoryRequests);
+
 // Farmer
 router.get("/farmer", protect, getFarmerRequests);
 router.put("/:id/accept", protect, acceptRequest);
