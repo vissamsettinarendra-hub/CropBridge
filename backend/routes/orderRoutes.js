@@ -44,7 +44,6 @@ router.get(
 // ====================================
 // Update Order Status
 // ====================================
-
 router.put(
   "/:id/status",
   protect,
