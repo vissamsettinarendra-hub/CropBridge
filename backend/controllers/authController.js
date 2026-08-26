@@ -168,4 +168,4 @@ export const logoutUser = (req, res) => {
     message: "Logout Successful",
   });
 
-};
+};      
