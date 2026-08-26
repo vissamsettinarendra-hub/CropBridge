@@ -23,5 +23,6 @@ router.post("/login", loginUser);
 router.post("/logout", logoutUser);
 
 // Current Logged-in User
+
 router.get("/me", protect, getCurrentUser);
-export default router ;    
+export default router;    
