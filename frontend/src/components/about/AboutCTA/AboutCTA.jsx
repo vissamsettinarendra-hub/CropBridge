@@ -22,6 +22,8 @@ const AboutCTA = () => {
 
     </section>
   );
+
+  
 };
 
 export default AboutCTA ;
