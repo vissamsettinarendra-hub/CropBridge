@@ -20,7 +20,6 @@ const AboutHero = () => {
     </section>
   ) ;
 };
-
 export default AboutHero;
 
 
