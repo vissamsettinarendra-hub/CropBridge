@@ -16,7 +16,6 @@
     line-height:1.8;
     margin-bottom:40px;
 }
-
 .about-cta button{
     padding:16px 40px;
     border:none;
@@ -28,7 +27,6 @@
     cursor:pointer;
     transition:.3s;
 }
-
 .about-cta button:hover{
     transform:translateY(-5px);
     
