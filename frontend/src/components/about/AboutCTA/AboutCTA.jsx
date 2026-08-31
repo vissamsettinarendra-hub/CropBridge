@@ -1,4 +1,5 @@
 import "./AboutCTA.css";
+
 import { Link } from "react-router-dom";
 
 const AboutCTA = () => {
@@ -23,7 +24,7 @@ const AboutCTA = () => {
     </section>
   );
 
-  
+ 
 };
 
 export default AboutCTA ;
