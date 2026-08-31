@@ -19,7 +19,10 @@ const AboutHero = () => {
       </div>
     </section>
   ) ;
+  
 };
+
+
 export default AboutHero;
 
 
