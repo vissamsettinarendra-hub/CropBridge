@@ -29,4 +29,5 @@ export const faqs = [
     answer:
       "Yes. CropBridge uses secure payment gateways to ensure safe and transparent transactions."
   }
+
 ];
