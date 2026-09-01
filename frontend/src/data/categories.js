@@ -84,4 +84,5 @@ export const categories = [
     image: groundnut,
     description: "High-quality groundnuts for oil extraction."
   }
+
 ];
