@@ -13,4 +13,5 @@ export const authData = {
     subtitle: "Join India's largest agricultural marketplace." ,
     image: registerBanner,
   },
+
 };
