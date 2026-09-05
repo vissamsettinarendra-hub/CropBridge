@@ -61,3 +61,5 @@ export const industries = [
       "Feed manufacturers procure grains for poultry and livestock nutrition.",
   },
 ];
+
+
