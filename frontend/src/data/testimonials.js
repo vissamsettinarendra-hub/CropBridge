@@ -31,3 +31,6 @@ export const testimonials = [
       "Finding quality crops directly from farmers has become easy. CropBridge saves us both time and procurement costs.",
   },
 ];
+
+
+
