@@ -50,4 +50,3 @@ status:"Hot Selling"
 }
 
 ];
-
